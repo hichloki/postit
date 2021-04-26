@@ -6,6 +6,8 @@ class PostIt {
     largeur;
     longueur;
     id;
+    text;
+    Ctext;
 
     constructor(id){
         this.x=250
@@ -14,6 +16,8 @@ class PostIt {
         this.largeur=150
         this.longueur=150
         this.id=id
+        this.text=""
+        this.Ctext=""
     }
    
     AfficherPt(){
@@ -37,6 +41,10 @@ Pt.style.width = this.largeur + "px"
 Pt.style.height = this.longueur + "px"
 Pt.style.top = this.y + "px"
 Pt.style.left = this.x + "px"
+Pt.style.color=this.Ctext
+Pt.innerHTML=this.text
+
+
         
     }
    
@@ -46,15 +54,18 @@ Pt.style.left = this.x + "px"
     }
 
 
-    TaillePt(x,y){
-this.largeur=x 
-this.longueur=y
+    TaillePt(largeur,longueur){
+this.largeur=largeur
+this.longueur=longueur
     }
 
     newcouleur(couleur){
 this.couleur=couleur
     }
     
-    
+    modifcontenu(text,couleur){
+this.text=text
+this.Ctext=couleur
+    }
     
 }
