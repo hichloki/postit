@@ -1,0 +1,37 @@
+body{
+    background-image: url(img/liege.jpg);
+    background-size: contain;
+}
+
+#BlocHaut{
+
+    width: auto;
+    height: 75px;
+    background-color: papayawhip;
+    position: absolute;
+    top: -1%;
+    right: 0;
+    left: 0;
+    bottom:0;
+
+}
+
+#BlocGauche{
+    width: 225px;
+    height: 100%;
+    background-color: rgb(173, 123, 90);
+    position: absolute;
+    top:6.7%;
+    right: -1%;
+    left:0;
+    bottom: 0;
+    
+}
+
+#pt2{
+    border-radius: 15px;
+
+}
+#pt1{
+border-radius: 15px;
+}

@@ -7,7 +7,7 @@ class PostIt {
     longueur;
     id;
     text = {contenu:"",couleur:"",police:"",style:""};
-    Ctext;
+    
 
     constructor(id){
         this.x=250
