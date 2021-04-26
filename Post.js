@@ -39,10 +39,22 @@ Pt.style.top = this.y + "px"
 Pt.style.left = this.x + "px"
         
     }
-    PositionPt(){}
-    TaillePt(){}
-    RedimmensionPt(){}
-    TextePt(){}
-    ModifTextePt(){}
-    DeplacePt(){}
+   
+    PositionPt(x,y){
+        this.x=x
+        this.y=y
+    }
+
+
+    TaillePt(x,y){
+this.largeur=x 
+this.longueur=y
+    }
+
+    newcouleur(couleur){
+this.couleur=couleur
+    }
+    
+    
+    
 }
