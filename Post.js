@@ -6,7 +6,7 @@ class PostIt {
     largeur;
     longueur;
     id;
-    text;
+    text = {contenu:"",couleur:"",police:"",style:""};
     Ctext;
 
     constructor(id){
@@ -16,8 +16,13 @@ class PostIt {
         this.largeur=150
         this.longueur=150
         this.id=id
-        this.text=""
-        this.Ctext=""
+        this.text["contenu"]=""
+
+        // Ecriture version Js this.text.contenu=""
+
+        this.text["couleur"]=""
+        this.text["police"]=""
+        this.text["style"]=""
     }
    
     AfficherPt(){
@@ -41,9 +46,14 @@ Pt.style.width = this.largeur + "px"
 Pt.style.height = this.longueur + "px"
 Pt.style.top = this.y + "px"
 Pt.style.left = this.x + "px"
-Pt.style.color=this.Ctext
-Pt.innerHTML=this.text
 
+
+//* on passe l'élement en html
+Pt.innerHTML=this.text["contenu"]
+//* Css du contenu
+Pt.style.color=this.text["couleur"]
+Pt.style.fontSize=this.text["police"] + "px" 
+Pt.style.fontFamily=this.text["style"]
 
         
     }
@@ -63,9 +73,12 @@ this.longueur=longueur
 this.couleur=couleur
     }
     
-    modifcontenu(text,couleur){
-this.text=text
-this.Ctext=couleur
+    modifcontenu(text,couleur,police,style){
+this.text["contenu"]=text
+this.text["couleur"]=couleur
+this.text["police"]=police
+this.text["style"]=style
+
     }
     
 }

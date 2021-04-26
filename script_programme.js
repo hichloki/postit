@@ -10,6 +10,6 @@ monPostIt2.PositionPt(100,80)
 monPostIt2.TaillePt(300,150)
 
 monPostIt2.newcouleur("pink")
-monPostIt2.modifcontenu("textbonjour","Red")
+monPostIt2.modifcontenu("textbonjour","Red","20","cursive")
 
 monPostIt2.AfficherPt()
