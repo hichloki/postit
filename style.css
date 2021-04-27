@@ -1,10 +1,15 @@
 body{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
     background-image: url(img/liege.jpg);
     background-size: contain;
     max-height: 60%;
 }
 
-#BlocHaut{
+/*#BlocHaut{
 
     width: auto;
     height: 75px;
@@ -28,6 +33,8 @@ body{
     bottom: 0;
     
 }
+
+*/
 
 #pt2{
     border-radius: 15px;
