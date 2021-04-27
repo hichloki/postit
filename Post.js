@@ -18,7 +18,7 @@ class PostIt {
         this.id=id
         this.text["contenu"]=""
 
-        // Ecriture version Js this.text.contenu=""
+        // Ecriture version Js ( this.text.contenu="" )
 
         this.text["couleur"]=""
         this.text["police"]=""
@@ -37,6 +37,12 @@ class PostIt {
 
             //* on ajoute l'élement dans le body
             document.body.appendChild(Pt)
+            //deplacement du drag
+            Pt.addEventListener('dragend' , (e) =>{
+                this.x=e.screenX - Math.floor(this.largeur/2)
+                this.y=e.screenY - this.longueur
+                this.AfficherPt()
+            })
         }
 //* On passe à la partie css du postit
 
@@ -46,6 +52,7 @@ Pt.style.width = this.largeur + "px"
 Pt.style.height = this.longueur + "px"
 Pt.style.top = this.y + "px"
 Pt.style.left = this.x + "px"
+Pt.draggable = true
 
 
 //* on passe l'élement en html
@@ -80,5 +87,8 @@ this.text["police"]=police
 this.text["style"]=style
 
     }
+
+   
     
 }
+

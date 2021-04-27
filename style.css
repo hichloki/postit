@@ -1,6 +1,7 @@
 body{
     background-image: url(img/liege.jpg);
     background-size: contain;
+    max-height: 60%;
 }
 
 #BlocHaut{
