@@ -13,10 +13,11 @@ class PostIt {
     sourisYInit
     
 
+
     constructor(id){
         this.x=250
         this.y=100
-        this.couleur="yellow"
+        this.couleur="Gold"
         this.largeur=150
         this.longueur=150
         this.id=id
@@ -25,10 +26,13 @@ class PostIt {
         // Ecriture version Js ( this.text.contenu="" )
 
         this.text["couleur"]=""
-        this.text["police"]=""
+        this.text["police"]=12
         this.text["style"]=""
     }
    
+  
+
+
     AfficherPt(){
         //* On vérifie si l'élement existe sinon on le crée
         let Pt = document.getElementById(this.id)
@@ -53,10 +57,13 @@ class PostIt {
 Pt.style.position = "fixed"
 Pt.style.backgroundColor = this.couleur
 Pt.style.width = this.largeur + "px"
+Pt.style.minWidth = "200px"
 Pt.style.height = this.longueur + "px"
+Pt.style.minHeight = "200px"
 Pt.style.top = this.y + "px"
 Pt.style.left = this.x + "px"
-Pt.draggable = true
+Pt.style.wordWrap= "break-word"
+//Pt.draggable = true
 
 
 //* on passe l'élement en html
@@ -69,9 +76,11 @@ Pt.style.fontFamily=this.text["style"]
 //* MENU
 
 let menu = document.createElement('div')
-
+menu.classList.add('ok')
 menu.style.height = "20px"
-menu.style.width = (this.largeur-5) + "px"
+menu.style.width = (this.largeur-2) + "px"
+menu.style.minHeight = "20px"
+menu.style.minWidth = "198px"
 menu.style.border ='1px solid black'
 menu.style.borderRadius = "15px"
 menu.style.position = "absolute"
@@ -88,6 +97,7 @@ bout1.classList.add('fa-arrows-alt')
 
 bout1.addEventListener('click', (e)=>{
     move = true
+    numCase=this.id
     e.stopPropagation()
 })
 
@@ -100,6 +110,7 @@ bout2.classList.add('fa-edit')
 
 bout2.addEventListener('click',(e)=>{
     edit =true
+    numCase=this.id
     e.stopPropagation()
 })
 
@@ -113,6 +124,7 @@ bout3.classList.add('fa-ruler-horizontal')
 
 bout3.addEventListener('click', (e)=>{
     resize = true
+    numCase=this.id
 
     this.hauteurInit=this.largeur
     this.largeurInit=this.longueur
@@ -123,7 +135,50 @@ bout3.addEventListener('click', (e)=>{
 })
 
 menu.appendChild(bout3)
+
+
+//*      BOUTON PLUS  Policeplus(){ this.text["police"]++}
+
+let bout4=document.createElement("i")
+bout4.classList.add('fas')
+bout4.classList.add('fa-plus')
+
+
+bout4.addEventListener('click',(e)=>{
+  this.Policeplus()
+    e.stopPropagation()
+    this.AfficherPt()
+})
+menu.appendChild(bout4)
+
+
+//* BOUTON MOINS  Policemoins(){ this.text["police"]--} 
+
+let bout5 =document.createElement("i")
+bout5.classList.add('fas')
+bout5.classList.add('fa-minus')
+
+bout5.addEventListener('click',(e)=>{
+    this.Policemoins()
+    e.stopPropagation()
+    this.AfficherPt()
+})
+menu.appendChild(bout5)
+
+
+let bout6=document.createElement('i')
+bout6.classList.add('fas')
+bout6.classList.add('fa-tint')
+bout6.type="color"
+bout6.addEventListener('change',(e)=>{
+    this.newcolor(e.target.value)
+    e.stopPropagation()
+    this.AfficherPt()
+})
+menu.appendChild(bout6)
 }
+
+
    
     PositionPt(x,y){
         this.x=x
@@ -142,9 +197,9 @@ this.couleur=couleur
     
     modifcontenu(text,couleur,police,style){
 this.text["contenu"]=text
-this.text["couleur"]=couleur
-this.text["police"]=police
-this.text["style"]=style
+// this.text["couleur"]=couleur
+// this.text["police"]=police
+// this.text["style"]=style
 
     }
 
@@ -153,6 +208,17 @@ this.text["style"]=style
     this.longueur=haut
     }
    
-    
+    Policeplus(){
+        this.text["police"]++
+    }
+
+    Policemoins(){
+        this.text['police']--
+    }
+
+    newcolor(cols){
+        this.text['couleur']=cols
+        
+    }
 }
 
