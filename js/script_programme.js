@@ -18,15 +18,7 @@ for(let i in tabcookie){
     numCase=tabPostIt.length
     tabPostIt.push(new PostIt(numCase))
     tabPostIt[numCase].majPostIt(tabcookie[i].x,tabcookie[i].y,tabcookie[i].couleur,tabcookie[i].text["contenu"])
-    let col = nbAleat(0, 5);
-    if(col == 0){coule = "Gold"}
-    if(col == 1){coule = "green"}
-    if(col == 2){coule = "crimson"}
-    if(col == 3){coule = "coral"}
-    if(col == 4){coule = "grey"}
-    if(col == 5){coule = "Pink"}
-
-   tabPostIt[numCase].newcouleur(coule)
+     
     tabPostIt[numCase].AfficherPt()
 
 }
@@ -39,6 +31,7 @@ function nbAleat(min, max){
 boutAjout.addEventListener('click' ,()=>{
     numCase=tabPostIt.length
     tabPostIt.push(new PostIt(numCase))
+    let coule='Gold'
     let col = nbAleat(0, 5);
     if(col == 0){coule = "Gold"}
     if(col == 1){coule = "green"}
@@ -47,13 +40,10 @@ boutAjout.addEventListener('click' ,()=>{
     if(col == 4){coule = "grey"}
     if(col == 5){coule = "Pink"}
 
+
     tabPostIt[numCase].newcouleur(coule)
     tabPostIt[numCase].AfficherPt()
 })
-
-
-
-
 
 
 

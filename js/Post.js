@@ -220,5 +220,12 @@ this.text["contenu"]=text
         this.text['couleur']=cols
         
     }
+
+    majPostIt(x,y,couleur,text){
+        this.x=x
+        this.y=y
+        this.couleur=couleur
+        this.text["contenu"]=text
+    }
 }
 
