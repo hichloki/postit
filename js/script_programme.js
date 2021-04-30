@@ -10,6 +10,28 @@ let numCase = 0
 
 let boutAjout=document.getElementById('AjBout')
 
+let tabcookie = JSON.parse(readCookie("tabPostIt"))
+
+
+for(let i in tabcookie){
+   // console.log(tabcookie[i])
+    numCase=tabPostIt.length
+    tabPostIt.push(new PostIt(numCase))
+    tabPostIt[numCase].majPostIt(tabcookie[i].x,tabcookie[i].y,tabcookie[i].couleur,tabcookie[i].text["contenu"])
+    let col = nbAleat(0, 5);
+    if(col == 0){coule = "Gold"}
+    if(col == 1){coule = "green"}
+    if(col == 2){coule = "crimson"}
+    if(col == 3){coule = "coral"}
+    if(col == 4){coule = "grey"}
+    if(col == 5){coule = "Pink"}
+
+   tabPostIt[numCase].newcouleur(coule)
+    tabPostIt[numCase].AfficherPt()
+
+}
+console.log(tabcookie)
+
 function nbAleat(min, max){
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -28,6 +50,7 @@ boutAjout.addEventListener('click' ,()=>{
     tabPostIt[numCase].newcouleur(coule)
     tabPostIt[numCase].AfficherPt()
 })
+
 
 
 
@@ -95,6 +118,14 @@ document.body.addEventListener('mousemove',(e)=>{
            
             })
 
+            setInterval(saveTableau,1000)
+
+function saveTableau(){
+    
+    createCookie('tabPostIt',JSON.stringify(tabPostIt),7)
+}
+
+
 setInterval(inter, 50)
 
 
@@ -119,3 +150,28 @@ monPostIt2.modifcontenu("textbonjour","Red","20","cursive")
 monPostIt2.AfficherPt()
  
 */
+
+function createCookie(name,value,days) {
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires+"; path=/;SameSite=None;Secure";
+}
+
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
+
+function eraseCookie(name) {
+	createCookie(name,"",-1);
+}
